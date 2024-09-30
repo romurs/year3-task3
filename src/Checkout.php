@@ -19,11 +19,11 @@ class Checkout
     $this->userBalance = $userBalance;
   }
 
-  public function setPaymentMethod(string $method)
+  public function setPaymentMethod(string $method) : void
   {
     $this->paymentMethod = $method;
   }
-  public function processPayment($amount)
+  public function processPayment($amount) : void
   {
     try {
       if ($this->userBalance < $amount) {
@@ -38,7 +38,7 @@ class Checkout
       print $e->getMessage();
     }
   }
-  public function finalizeOrder()
+  public function finalizeOrder() : void
   {
     $totalAmount = $this->cart->getTotal();
     try {
@@ -48,7 +48,7 @@ class Checkout
     }
   }
 
-  public function getUserBalance()
+  public function getUserBalance() : int
   {
     return $this->userBalance;
   }

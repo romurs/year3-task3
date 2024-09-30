@@ -17,7 +17,7 @@ class Cart
     $this->maxItem = $maxItem;
   }
 
-  public function addItem(Product &$product, $quantity)
+  public function addItem(Product &$product, int $quantity) : void
   {
     try {
       if (count($this->items) + $quantity > $this->maxItem) {
@@ -35,13 +35,13 @@ class Cart
       print $e->getMessage() . PHP_EOL;
     }
   }
-  public function removeItem(Product $product)
+  public function removeItem(Product $product) : void
   {
     $index = array_search($product->getName(), $this->items);
     unset($this->items, $index);
     array_values($this->items);
   }
-  public function getTotal()
+  public function getTotal() : int
   {
     $totalCost = 0;
     for ($i = 0; $i < count($this->items); $i++) {

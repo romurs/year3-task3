@@ -17,20 +17,20 @@ class Product
     $this->stock = $stock;
   }
 
-  public function getName()
+  public function getName() : string
   {
     return $this->name;
   }
-  public function getPrice()
+  public function getPrice() : int
   {
     return $this->price;
   }
-  public function getStock()
+  public function getStock() : int
   {
     return $this->stock;
   }
 
-  public function reduceStock($quantity)
+  public function reduceStock($quantity) : void
   {
     try {
       if (($this->stock - $quantity) < 0) {
